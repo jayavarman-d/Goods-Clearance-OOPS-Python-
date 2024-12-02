@@ -1,4 +1,4 @@
-#from abc import ABC,abstractmethod
+from abc import ABC,abstractmethod
 
 
 class Products:
@@ -25,6 +25,6 @@ class Products:
     def set_price(self, price):
         self.__price = price
 
-""" @abstractmethod
-    #def display_products(self):
-    #   pass"""
+    @abstractmethod
+    def display_products(self):
+       pass

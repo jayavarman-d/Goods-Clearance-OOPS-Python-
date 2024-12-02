@@ -1,7 +1,8 @@
 from dbconnection import DatabaseCon
+from products import Products
 
 
-class Admin(DatabaseCon):
+class Admin(DatabaseCon, Products):
 
     def display_products(self):
 
@@ -11,8 +12,8 @@ class Admin(DatabaseCon):
 
     def add_prod(self, name, quantity, price):
 
-        query = 'INSERT INTO products(product_name,available_quantity,price) VALUES(?,?,?)'
-        self.cursor.execute(query)
+        query = 'INSERT INTO products(product_name,available_stock,price) VALUES(?,?,?)'
+        self.cursor.execute(query, (name, quantity, price))
         self.conn.commit()
         print("Product Added Successfully")
 

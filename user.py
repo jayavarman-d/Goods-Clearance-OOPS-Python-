@@ -1,8 +1,9 @@
 from invoice import Invoice
 from dbconnection import DatabaseCon
+from products import Products
 
 
-class User(DatabaseCon):
+class User(DatabaseCon, Products):
 
     def display_products(self):
 
@@ -13,7 +14,7 @@ class User(DatabaseCon):
     def buy(self, user_id, product_name, quantity):
 
         buy_query = 'SELECT * FROM products WHERE product_name= ?'
-        self.cursor.execute(buy_query,(product_name,))
+        self.cursor.execute(buy_query, (product_name,))
         prod = self.cursor.fetchone()
 
         if prod and prod[3] >= quantity:
