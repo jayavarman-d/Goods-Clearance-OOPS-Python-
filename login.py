@@ -19,7 +19,7 @@ class Login(DatabaseCon):
 
     def signup(self, username, password, mobile, user_type):
         try:
-            if len(mobile)>10:
+            if len(mobile) == 10:
                 raise Exception
             signup_query = 'INSERT INTO users(username,password,mobile_number,user_type) VALUES(?,?,?,?)'
             self.cursor.execute(signup_query, (username, password, mobile, user_type))
