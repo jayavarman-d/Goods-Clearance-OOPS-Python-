@@ -98,7 +98,8 @@ class Home:
             elif option == '3':
                 print('Exiting Application!! Thank You!!!')
                 break
-
+            else:
+                print('Enter Valid Option!!!')
 
 obj = Home()
 obj.main_page()
