@@ -2,7 +2,6 @@ import pyodbc
 
 
 class DatabaseCon:
-
   def __init__(self):
       self.conn = pyodbc.connect(
         "DRIVER={ODBC Driver 17 for SQL Server};"

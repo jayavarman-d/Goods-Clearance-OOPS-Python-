@@ -11,3 +11,13 @@ class Invoice(DatabaseCon):
         self.conn.commit()
 
         print('Invoice generated')
+
+    def bill_details(self,user_id):
+
+        bill_query = 'SELECT * FROM invoice WHERE user_id = ?'
+        self.cursor.execute(bill_query, (user_id))
+        bill = self.cursor.fetchall()
+
+        for bill_id in range(len(bill)):
+            bill[bill_id] =( bill[bill_id][0], bill[bill_id][1], bill[bill_id][2].strftime('%Y-%m-%d'), bill[bill_id][3] )
+        return bill

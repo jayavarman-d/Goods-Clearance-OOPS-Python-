@@ -1,6 +1,7 @@
 from login import Login
 from admin import Admin
 from user import User
+from invoice import Invoice
 
 
 class Home:
@@ -73,7 +74,8 @@ class Home:
                             print('\nUser Menu')
                             print('1.View Products')
                             print('2.Buy Products')
-                            print('3.Logout')
+                            print('3.Bill Details')
+                            print('4.Logout')
 
                             user_option = input('Enter your Option')
 
@@ -90,6 +92,13 @@ class Home:
                                 user_fun.buy(user_val[0],product_name,quantity)
 
                             elif user_option == '3':
+                                print('\n Bill Details')
+
+                                invoice_fun= Invoice()
+                                for bill_id in invoice_fun.bill_details(user_val[0]):
+                                    print(bill_id)
+
+                            elif user_option == '4':
                                 break
 
                             else:
